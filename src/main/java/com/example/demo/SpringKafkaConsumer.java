@@ -28,9 +28,6 @@ public class SpringKafkaConsumer {
 	@KafkaListener(topics = TOPIC_NAME)
 		public void consume(ConsumerRecord<String, String> record) {
 			if (record.value().contains(FILTER_STRING)) {
-				// write filtered record to a separate file
-				// replace with your own file writing logic
-				// ...
 				System.out.println("Filtered record: " + record.value());
 				writeToFile(record.value());
 			}
